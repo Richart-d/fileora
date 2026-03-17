@@ -11,12 +11,14 @@
 
 ## Tasks
 - [x] T-01: Create GitHub Repository
-- [ ] T-02: Next.js 14 Setup
+- [x] T-02: Next.js 14 Setup
 
 ## Current Status
-Executing T-02: Next.js 14 Setup
+✅ Done T-02: Next.js 14 Setup. Waiting for approval to proceed.
 
 ## Session Notes
 - Session 1 started.
 - Initialized local Git repository with `README.md` and `.gitignore` for Node.js.
 - Note: Could not create the remote GitHub repository automatically as there is no active GitHub session in the browser. User will need to provide the remote URL.
+- Scaffolded Next.js 14 with Tailwind CSS, TypeScript, ESLint, App Router.
+- Verified dev server runs on localhost:3000.

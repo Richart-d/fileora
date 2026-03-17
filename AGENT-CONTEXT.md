@@ -11,9 +11,10 @@
 
 ## Tasks
 - [x] T-01: Create GitHub Repository
+- [ ] T-02: Next.js 14 Setup
 
 ## Current Status
-✅ Done T-01: Create GitHub Repository (Locally initialized. Awaiting user to link remote GitHub repository). Waiting for approval.
+Executing T-02: Next.js 14 Setup
 
 ## Session Notes
 - Session 1 started.

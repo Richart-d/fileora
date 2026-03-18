@@ -13,14 +13,16 @@
 - [x] T-01: Create GitHub Repository
 - [x] T-02: Next.js 14 Setup
 - [x] T-03: Install Core Dependencies
+- [ ] T-04: Setup shadcn/ui
 
 ## Current Status
-✅ Done T-03: Install Core Dependencies. Waiting for approval to proceed.
+Executing T-04: Setup shadcn/ui
 
 ## Session Notes
 - Session 1 started.
 - Initialized local Git repository with `README.md` and `.gitignore` for Node.js.
-- Note: Could not create the remote GitHub repository automatically as there is no active GitHub session in the browser. User will need to provide the remote URL.
+- Renamed GitHub repository from `Fileora` to `fileora` and synced local remote.
 - Scaffolded Next.js 14 with Tailwind CSS, TypeScript, ESLint, App Router.
 - Verified dev server runs on localhost:3000.
-- Installed core dependencies (Convex, Clerk, PDF utilities, UI packages) using `--legacy-peer-deps` to bypass React version conflicts.
+- Installed core dependencies using `--legacy-peer-deps`.
+- Note: `shadcn/ui` setup is currently blocked by a network outage/reset when connecting to `ui.shadcn.com`.

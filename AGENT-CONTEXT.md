@@ -13,10 +13,13 @@
 - [x] T-01: Create GitHub Repository
 - [x] T-02: Next.js 14 Setup
 - [x] T-03: Install Core Dependencies
-- [ ] T-04: Setup shadcn/ui
+- [x] T-04: Setup shadcn/ui
+
+## Tech Stack Addendum
+| Toast Notifications | sonner | replaces shadcn/ui toast |
 
 ## Current Status
-Executing T-04: Setup shadcn/ui
+Executing T-04: Setup shadcn/ui + sonner
 
 ## Session Notes
 - Session 1 started.
@@ -25,4 +28,6 @@ Executing T-04: Setup shadcn/ui
 - Scaffolded Next.js 14 with Tailwind CSS, TypeScript, ESLint, App Router.
 - Verified dev server runs on localhost:3000.
 - Installed core dependencies using `--legacy-peer-deps`.
-- Note: `shadcn/ui` setup is currently blocked by a network outage/reset when connecting to `ui.shadcn.com`.
+- shadcn/ui init succeeded (Radix + Nova preset). Components added: button, input, card, dialog. Other components still pending.
+- Replaced deprecated shadcn/ui toast with `sonner`. Added `<Toaster />` to root `layout.tsx`.
+- Updated `layout.tsx` to use Sora + Inter fonts per PRD design guidelines.

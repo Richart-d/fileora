@@ -15,14 +15,15 @@
 - [x] T-03: Install Core Dependencies
 - [x] T-04: Setup shadcn/ui
 - [x] T-05: Configure Clerk Authentication
-- [x] T-06: Finalize Clerk Authentication & Environment Configuration
+- [x] T-06: Finalized Clerk authentication: added redirection variables to .env.local, updated middleware to include webhooks, and refactored layout to use standard Clerk components.
+- [x] T-07: Created dedicated Sign-in and Sign-up pages with clean white background, centered Fileora logo, using Clerk auth components.
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
 | Authentication | Clerk  | Keyless Mode, App Router |
 
 ## Current Status
-Executing T-06: Finalize Clerk Authentication & Environment Configuration [COMPLETED]
+Executing T-07: Create Auth Pages (Sign-in / Sign-up) [COMPLETED]
 
 ## Session Notes
 - Session 1 started.

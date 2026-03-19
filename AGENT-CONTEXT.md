@@ -14,12 +14,15 @@
 - [x] T-02: Next.js 14 Setup
 - [x] T-03: Install Core Dependencies
 - [x] T-04: Setup shadcn/ui
+- [x] T-05: Configure Clerk Authentication
+- [x] T-06: Finalize Clerk Authentication & Environment Configuration
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
+| Authentication | Clerk  | Keyless Mode, App Router |
 
 ## Current Status
-Executing T-04: Setup shadcn/ui + sonner
+Executing T-06: Finalize Clerk Authentication & Environment Configuration [COMPLETED]
 
 ## Session Notes
 - Session 1 started.
@@ -28,6 +31,9 @@ Executing T-04: Setup shadcn/ui + sonner
 - Scaffolded Next.js 14 with Tailwind CSS, TypeScript, ESLint, App Router.
 - Verified dev server runs on localhost:3000.
 - Installed core dependencies using `--legacy-peer-deps`.
-- shadcn/ui init succeeded (Radix + Nova preset). Components added: button, input, card, dialog. Other components still pending.
+- shadcn/ui init succeeded (Radix + Nova preset). Added 9 essential components.
 - Replaced deprecated shadcn/ui toast with `sonner`. Added `<Toaster />` to root `layout.tsx`.
 - Updated `layout.tsx` to use Sora + Inter fonts per PRD design guidelines.
+- Integrated Clerk Authentication (moved from Keyless Mode to using provided API keys).
+- Configured `.env.local` with Clerk Publishable and Secret keys.
+- Created `proxy.ts` middleware and added `<ClerkProvider>` and header to root layout.

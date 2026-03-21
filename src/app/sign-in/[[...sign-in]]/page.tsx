@@ -7,7 +7,7 @@ export default function SignInPage() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-white p-4">
       <Link href="/" className="mb-8">
         <Image 
-          src="/logo.png" 
+          src="/fileora_logo.png" 
           alt="Fileora Logo" 
           width={150} 
           height={60} 

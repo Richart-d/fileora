@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
-import { ClerkProvider, SignInButton, SignUpButton, Show, UserButton, useAuth } from "@clerk/nextjs";
-import { ConvexProviderWithClerk } from "convex/react-clerk";
-import { ConvexReactClient } from "convex/react";
+import { SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
+import { Providers } from "@/components/providers";
 import { Toaster } from "sonner";
 import { cn } from "@/lib/utils";
 import "./globals.css";
@@ -19,12 +18,9 @@ const sora = Sora({
   weight: ["600", "700"],
 });
 
-const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
-
 export const metadata: Metadata = {
-  title: "Fileora — Document Utility Platform",
-  description:
-    "Build ATS-ready CVs and handle all your PDF needs — free, fast, and professional.",
+  title: "Fileora — CV Builder & PDF Tools",
+  description: "Build your CV and manage your PDFs in one place",
 };
 
 export default function RootLayout({
@@ -33,11 +29,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en" className={cn(inter.variable, sora.variable)}>
-        <body className="bg-[#F8FAFC] text-[#1E293B] font-inter antialiased">
-          <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
-            <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+    <html lang="en" className={cn(inter.variable, sora.variable)}>
+      <body className="bg-[#F8FAFC] text-[#1E293B] font-inter antialiased">
+        <Providers>
+          <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
             <div className="container mx-auto px-4 h-16 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="text-2xl font-sora font-bold text-[#1E3A5F]">Fileora</span>
@@ -68,9 +63,8 @@ export default function RootLayout({
           </main>
           
           <Toaster richColors position="top-right" />
-          </ConvexProviderWithClerk>
-        </body>
-      </html>
-    </ClerkProvider>
+        </Providers>
+      </body>
+    </html>
   );
 }

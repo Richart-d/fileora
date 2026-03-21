@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
 import { SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
 import { Providers } from "@/components/providers";
+import { UserSync } from "@/components/UserSync";
 import { Toaster } from "sonner";
 import { cn } from "@/lib/utils";
 import "./globals.css";
@@ -32,6 +33,7 @@ export default function RootLayout({
     <html lang="en" className={cn(inter.variable, sora.variable)}>
       <body className="bg-[#F8FAFC] text-[#1E293B] font-inter antialiased">
         <Providers>
+          <UserSync />
           <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
             <div className="container mx-auto px-4 h-16 flex items-center justify-between">
               <div className="flex items-center gap-2">

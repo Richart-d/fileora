@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
-import { SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
+import { SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { Providers } from "@/components/providers";
 import { UserSync } from "@/components/UserSync";
 import { Toaster } from "sonner";
@@ -41,7 +41,7 @@ export default function RootLayout({
               </div>
               
               <div className="flex items-center gap-4">
-                <Show when="signed-out">
+                <SignedOut>
                   <SignInButton mode="modal">
                     <button className="text-sm font-medium text-slate-600 hover:text-[#1E3A5F] transition-colors">
                       Sign In
@@ -52,10 +52,10 @@ export default function RootLayout({
                       Sign Up
                     </button>
                   </SignUpButton>
-                </Show>
-                <Show when="signed-in">
+                </SignedOut>
+                <SignedIn>
                   <UserButton />
-                </Show>
+                </SignedIn>
               </div>
             </div>
           </header>

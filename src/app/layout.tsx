@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
-import { ClerkProvider, SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import { Providers } from "@/components/providers";
+import { HeaderAuth } from "@/components/HeaderAuth";
 import { UserSync } from "@/components/UserSync";
 import { Toaster } from "sonner";
 import { cn } from "@/lib/utils";
@@ -42,21 +43,7 @@ export default function RootLayout({
                 </div>
                 
                 <div className="flex items-center gap-4">
-                  <Show when="signed-out">
-                    <SignInButton mode="modal">
-                      <button className="text-sm font-medium text-slate-600 hover:text-[#1E3A5F] transition-colors">
-                        Sign In
-                      </button>
-                    </SignInButton>
-                    <SignUpButton mode="modal">
-                      <button className="px-4 py-2 text-sm font-medium text-white bg-[#1E3A5F] rounded-lg hover:bg-[#1E3A5F]/90 transition-colors">
-                        Sign Up
-                      </button>
-                    </SignUpButton>
-                  </Show>
-                  <Show when="signed-in">
-                    <UserButton />
-                  </Show>
+                <HeaderAuth />
                 </div>
               </div>
             </header>

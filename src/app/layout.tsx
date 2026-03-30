@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Providers } from "@/components/providers";
-import { Navbar } from "@/components/layout/Navbar";
 import { UserSync } from "@/components/UserSync";
 import { Toaster } from "sonner";
 import { cn } from "@/lib/utils";
@@ -36,11 +35,7 @@ export default function RootLayout({
         <body className="bg-[#F8FAFC] text-[#1E293B] font-inter antialiased">
           <Providers>
             <UserSync />
-            <Navbar />
-            
-            <main className="pt-16 min-h-screen">
-              {children}
-            </main>
+            {children}
             
             <Toaster richColors position="top-right" />
           </Providers>

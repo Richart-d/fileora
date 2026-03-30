@@ -17,15 +17,15 @@
 - [x] T-05: Configure Clerk Authentication
 - [x] T-06: Finalized Clerk authentication: added redirection variables to .env.local, updated middleware to include webhooks, and refactored layout to use standard Clerk components.
 - [x] T-13: Configure Tailwind Theme & Fonts (extended theme with Fileora palette and font variables)
-- [ ] T-14: Update Landing Page UI
+- [x] T-14: Build the Navigation Bar Component (Responsive layout, Center Nav + PDF Tools dropdown, Mobile Sheet)
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
 | Authentication | Clerk  | Keyless Mode, App Router |
 
 ## Current Status
-Executing T-13: Configure Tailwind Theme & Fonts [COMPLETED]
-Next: T-14: Update Landing Page UI (as per Section 2.2 of Bible)
+Executing T-14: Build the Navigation Bar Component [COMPLETED]
+Next: T-15: Update Landing Page UI (as per Section 2.2 of Bible)
 
 ## Session Notes
 - Session 1 started.
@@ -41,4 +41,5 @@ Next: T-14: Update Landing Page UI (as per Section 2.2 of Bible)
 - Configured `.env.local` with Clerk Publishable and Secret keys.
 - Created `proxy.ts` middleware and added `<ClerkProvider>` and header to root layout.
 - Session 2 (Task T-13): Configured `tailwind.config.ts` with brand palette (Navy, Teal, Surface, Text tokens). Verified layout applies font variables to HTML tag.
+- Session 2 (Task T-14): Built `Navbar.tsx` incorporating Shadcn/UI DropdownMenu, Sheet, and Lucide icons. Replaced inline layout header with responsive Navbar.
 

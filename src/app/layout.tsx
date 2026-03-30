@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Providers } from "@/components/providers";
-import { HeaderAuth } from "@/components/HeaderAuth";
+import { Navbar } from "@/components/layout/Navbar";
 import { UserSync } from "@/components/UserSync";
 import { Toaster } from "sonner";
 import { cn } from "@/lib/utils";
@@ -36,17 +36,7 @@ export default function RootLayout({
         <body className="bg-[#F8FAFC] text-[#1E293B] font-inter antialiased">
           <Providers>
             <UserSync />
-            <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
-              <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl font-sora font-bold text-[#1E3A5F]">Fileora</span>
-                </div>
-                
-                <div className="flex items-center gap-4">
-                <HeaderAuth />
-                </div>
-              </div>
-            </header>
+            <Navbar />
             
             <main className="pt-16 min-h-screen">
               {children}

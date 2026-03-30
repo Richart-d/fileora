@@ -16,14 +16,16 @@
 - [x] T-04: Setup shadcn/ui
 - [x] T-05: Configure Clerk Authentication
 - [x] T-06: Finalized Clerk authentication: added redirection variables to .env.local, updated middleware to include webhooks, and refactored layout to use standard Clerk components.
-- [x] T-07: Created dedicated Sign-in and Sign-up pages with clean white background, centered Fileora logo, using Clerk auth components.
+- [x] T-13: Configure Tailwind Theme & Fonts (extended theme with Fileora palette and font variables)
+- [ ] T-14: Update Landing Page UI
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
 | Authentication | Clerk  | Keyless Mode, App Router |
 
 ## Current Status
-Executing T-07: Create Auth Pages (Sign-in / Sign-up) [COMPLETED]
+Executing T-13: Configure Tailwind Theme & Fonts [COMPLETED]
+Next: T-14: Update Landing Page UI (as per Section 2.2 of Bible)
 
 ## Session Notes
 - Session 1 started.
@@ -38,3 +40,5 @@ Executing T-07: Create Auth Pages (Sign-in / Sign-up) [COMPLETED]
 - Integrated Clerk Authentication (moved from Keyless Mode to using provided API keys).
 - Configured `.env.local` with Clerk Publishable and Secret keys.
 - Created `proxy.ts` middleware and added `<ClerkProvider>` and header to root layout.
+- Session 2 (Task T-13): Configured `tailwind.config.ts` with brand palette (Navy, Teal, Surface, Text tokens). Verified layout applies font variables to HTML tag.
+

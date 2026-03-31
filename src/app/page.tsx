@@ -1,101 +1,124 @@
-import Image from "next/image";
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { FileText, FileDown, Edit3, ArrowRight } from 'lucide-react'
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex flex-col min-h-screen bg-background">
+      {/* Header */}
+      <header className="container mx-auto px-4 h-16 flex items-center justify-between border-b border-border/40">
+        <div className="text-2xl font-sora font-bold text-primary">Fileora</div>
+        <div className="flex items-center gap-4">
+          <Link href="/sign-in" className="text-sm font-medium text-text-primary hover:text-primary transition-colors">
+            Sign In
+          </Link>
+          <Button asChild className="bg-primary text-white hover:bg-primary/90">
+            <Link href="/sign-up">Sign Up</Link>
+          </Button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </header>
+
+      {/* Hero Section */}
+      <section className="flex-1 flex flex-col items-center justify-center text-center px-4 py-20 md:py-32">
+        <h1 className="text-4xl md:text-6xl font-sora font-bold text-primary max-w-4xl tracking-tight mb-6">
+          Build your CV. Manage your PDFs. All in one place.
+        </h1>
+        <p className="text-lg md:text-xl text-text-muted max-w-2xl mb-10">
+          The ultimate document utility platform for professionals. Create ATS-friendly resumes and handle all your PDF conversions and edits for free.
+        </p>
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          <Button asChild size="lg" className="bg-accent text-white hover:bg-accent/90 w-full sm:w-auto h-12 px-8 text-base">
+            <Link href="/sign-up">Get Started Free <ArrowRight className="ml-2 w-4 h-4" /></Link>
+          </Button>
+          <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5 w-full sm:w-auto h-12 px-8 text-base">
+            <a href="#features">See Features</a>
+          </Button>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-20 bg-surface">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-sora font-bold text-primary mb-4">Everything you need</h2>
+            <p className="text-text-muted max-w-xl mx-auto">Powerful tools designed to make your professional life easier.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {/* Card 1 */}
+            <Card className="hover:border-accent hover:shadow-md transition-all duration-300">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <FileText className="w-6 h-6 text-primary" />
+                </div>
+                <CardTitle className="font-sora text-primary">CV Builder</CardTitle>
+                <CardDescription className="text-text-muted">
+                  Create professional, ATS-compliant resumes with smart templates and AI-assisted content improvement.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            {/* Card 2 */}
+            <Card className="hover:border-accent hover:shadow-md transition-all duration-300">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                  <FileDown className="w-6 h-6 text-accent" />
+                </div>
+                <CardTitle className="font-sora text-primary">PDF Converter</CardTitle>
+                <CardDescription className="text-text-muted">
+                  Convert documents effortlessly. Transform Word, Excel, Images, and HTML to and from PDF format.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            {/* Card 3 */}
+            <Card className="hover:border-accent hover:shadow-md transition-all duration-300">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Edit3 className="w-6 h-6 text-primary" />
+                </div>
+                <CardTitle className="font-sora text-primary">PDF Editor</CardTitle>
+                <CardDescription className="text-text-muted">
+                  Your complete toolkit. Merge multiple files, split pages, compress sizes, and remove specific pages instantly.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-primary py-12 text-primary-foreground">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div className="col-span-1 md:col-span-2">
+              <div className="text-2xl font-sora font-bold mb-4">Fileora</div>
+              <p className="text-primary-foreground/80 max-w-xs leading-relaxed">
+                The go-to document platform for professionals. Simple, fast, and free.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-sora font-semibold mb-4">Product</h4>
+              <ul className="space-y-2 text-primary-foreground/80">
+                <li><Link href="/#features" className="hover:text-white transition-colors">Features</Link></li>
+                <li><Link href="/sign-up" className="hover:text-white transition-colors">Sign Up</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-sora font-semibold mb-4">Legal</h4>
+              <ul className="space-y-2 text-primary-foreground/80">
+                <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
+                <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-primary-foreground/60">
+            <p>&copy; {new Date().getFullYear()} Fileora. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
-  );
+  )
 }

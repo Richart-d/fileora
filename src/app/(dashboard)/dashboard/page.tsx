@@ -17,7 +17,7 @@ export default function DashboardPage() {
         <h1 className="text-3xl font-sora font-bold text-primary mb-2">
           Welcome back{user?.firstName ? `, ${user.firstName}` : ""}!
         </h1>
-        <p className="text-text-muted">Here's what's happening with your documents today.</p>
+        <p className="text-text-muted">Here&apos;s what&apos;s happening with your documents today.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -95,7 +95,7 @@ export default function DashboardPage() {
                 <FileText className="w-12 h-12 text-text-muted/50 mb-4" />
                 <h3 className="text-lg font-sora font-medium text-primary mb-1">No CVs yet</h3>
                 <p className="text-text-muted text-sm max-w-sm mb-6">
-                  You haven't created any CVs. Start building your professional resume today.
+                  You haven&apos;t created any CVs. Start building your professional resume today.
                 </p>
                 <Link href="/cv-builder" className="bg-primary text-white hover:bg-primary/90 px-6 py-2 rounded-lg text-sm font-medium transition-colors">
                   Create First CV

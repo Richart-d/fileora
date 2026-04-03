@@ -5,7 +5,7 @@ export const get = query({
   handler: async (ctx) => {
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) {
-      throw new Error("Unauthenticated");
+      return [];
     }
 
     const user = await ctx.db

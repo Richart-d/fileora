@@ -1,21 +1,38 @@
+'use client'
+
 import Link from 'next/link'
+import { useAuth, SignInButton, SignUpButton } from '@clerk/nextjs'
 import { Button } from '@/components/ui/button'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { FileText, FileDown, Edit3, ArrowRight } from 'lucide-react'
 
 export default function LandingPage() {
+  const { isSignedIn } = useAuth()
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       {/* Header */}
       <header className="container mx-auto px-4 h-16 flex items-center justify-between border-b border-border/40">
         <div className="text-2xl font-sora font-bold text-primary">Fileora</div>
         <div className="flex items-center gap-4">
-          <Link href="/sign-in" className="text-sm font-medium text-text-primary hover:text-primary transition-colors">
-            Sign In
-          </Link>
-          <Button asChild className="bg-primary text-white hover:bg-primary/90">
-            <Link href="/sign-up">Sign Up</Link>
-          </Button>
+          {isSignedIn ? (
+            <Button asChild className="bg-primary text-white hover:bg-primary/90">
+              <Link href="/dashboard">Go to Dashboard</Link>
+            </Button>
+          ) : (
+            <>
+              <SignInButton mode="modal" forceRedirectUrl="/dashboard">
+                <button className="text-sm font-medium text-text-primary hover:text-primary transition-colors">
+                  Sign In
+                </button>
+              </SignInButton>
+              <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
+                <Button className="bg-primary text-white hover:bg-primary/90">
+                  Sign Up
+                </Button>
+              </SignUpButton>
+            </>
+          )}
         </div>
       </header>
 

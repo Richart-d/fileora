@@ -22,14 +22,15 @@
 - [x] T-16: Build the Landing Page (Hero section, Features with cards and icons, footer, and brand colours)
 - [x] T-17: Build the Dashboard Page (Welcome greeting, 3 quick-action cards, Convex resume queries & layout)
 - [x] T-18: Create Convex Resume Mutations (createResume, updateResume, getUserResumes, getResume, deleteResume)
+- [x] T-19: Build CV Template Selection Page
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
 | Authentication | Clerk  | Keyless Mode, App Router |
 
 ## Current Status
-✅ T-18: Create Convex Resume Mutations [COMPLETED]
-Next: Continue building CV Builder UI and editor mechanics.
+✅ T-19: Build CV Template Selection Page [COMPLETED]
+Next: Build CV Editor & Previews.
 
 ## Session Notes
 - Session 1 started.
@@ -50,3 +51,4 @@ Next: Continue building CV Builder UI and editor mechanics.
 - Session 2 (Task T-16): Built `page.tsx` landing page featuring Fileora logo, Hero selection with call-to-actions, features section with Lucide icons/cards, and fully themed footer.
 - Session 2 (Task T-17): Built the `/dashboard` authenticated portal mapping quick actions and Convex resume queries. Created `convex/resumes.ts` to power My CVs backend section safely.
 - Phase 4 started. Executed Task T-18: Implemented Convex resume mutations (`createResume`, `updateResume`, `getUserResumes`, `getResume`, `deleteResume`). Refactored dashboard to use `getUserResumes`.
+- Executed Task T-19: Built the CV Builder template selection page at `/cv-builder` with 4 stylized cards. Included mutation logic to create empty resumes and navigate.

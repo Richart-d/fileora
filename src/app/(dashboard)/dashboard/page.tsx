@@ -9,7 +9,7 @@ import { FileText, FileDown, Edit3, Plus, File, Clock } from "lucide-react";
 
 export default function DashboardPage() {
   const { user } = useUser();
-  const resumes = useQuery(api.resumes.get);
+  const resumes = useQuery(api.resumes.getUserResumes);
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">

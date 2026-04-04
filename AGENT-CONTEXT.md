@@ -21,14 +21,15 @@
 - [x] T-15: Build the Authenticated App Layout (created `(dashboard)/layout.tsx` with Navbar and main wrapper, removed from root)
 - [x] T-16: Build the Landing Page (Hero section, Features with cards and icons, footer, and brand colours)
 - [x] T-17: Build the Dashboard Page (Welcome greeting, 3 quick-action cards, Convex resume queries & layout)
+- [x] T-18: Create Convex Resume Mutations (createResume, updateResume, getUserResumes, getResume, deleteResume)
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
 | Authentication | Clerk  | Keyless Mode, App Router |
 
 ## Current Status
-Executing T-17: Build the Dashboard Page [COMPLETED]
-Next: Start building the CV Builder & PDF tool pages.
+✅ T-18: Create Convex Resume Mutations [COMPLETED]
+Next: Continue building CV Builder UI and editor mechanics.
 
 ## Session Notes
 - Session 1 started.
@@ -48,3 +49,4 @@ Next: Start building the CV Builder & PDF tool pages.
 - Session 2 (Task T-15): Created `(dashboard)/layout.tsx` to handle authenticated routing templates. Cleaned `RootLayout` by shifting navbar rendering to the new layout.
 - Session 2 (Task T-16): Built `page.tsx` landing page featuring Fileora logo, Hero selection with call-to-actions, features section with Lucide icons/cards, and fully themed footer.
 - Session 2 (Task T-17): Built the `/dashboard` authenticated portal mapping quick actions and Convex resume queries. Created `convex/resumes.ts` to power My CVs backend section safely.
+- Phase 4 started. Executed Task T-18: Implemented Convex resume mutations (`createResume`, `updateResume`, `getUserResumes`, `getResume`, `deleteResume`). Refactored dashboard to use `getUserResumes`.

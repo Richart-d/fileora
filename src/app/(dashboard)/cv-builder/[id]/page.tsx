@@ -31,7 +31,7 @@ export default function CVEditorPage() {
     return (
       <div className="flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] p-4 text-center">
         <h2 className="text-2xl font-sora font-semibold text-primary mb-2">CV Not Found</h2>
-        <p className="text-text-muted mb-6">The resume you're looking for doesn't exist or you don't have access.</p>
+        <p className="text-text-muted mb-6">The resume you&apos;re looking for doesn&apos;t exist or you don&apos;t have access.</p>
         <Button onClick={() => router.push("/cv-builder")}>Back to Templates</Button>
       </div>
     );

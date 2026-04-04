@@ -23,14 +23,15 @@
 - [x] T-17: Build the Dashboard Page (Welcome greeting, 3 quick-action cards, Convex resume queries & layout)
 - [x] T-18: Create Convex Resume Mutations (createResume, updateResume, getUserResumes, getResume, deleteResume)
 - [x] T-19: Build CV Template Selection Page
+- [x] T-20: Build CV Editor Split-Screen Layout
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
 | Authentication | Clerk  | Keyless Mode, App Router |
 
 ## Current Status
-✅ T-19: Build CV Template Selection Page [COMPLETED]
-Next: Build CV Editor & Previews.
+✅ T-20: Build CV Editor Split-Screen Layout [COMPLETED]
+Next: Build Individual Form Tab Components & PDF Preview Implementation.
 
 ## Session Notes
 - Session 1 started.
@@ -52,3 +53,4 @@ Next: Build CV Editor & Previews.
 - Session 2 (Task T-17): Built the `/dashboard` authenticated portal mapping quick actions and Convex resume queries. Created `convex/resumes.ts` to power My CVs backend section safely.
 - Phase 4 started. Executed Task T-18: Implemented Convex resume mutations (`createResume`, `updateResume`, `getUserResumes`, `getResume`, `deleteResume`). Refactored dashboard to use `getUserResumes`.
 - Executed Task T-19: Built the CV Builder template selection page at `/cv-builder` with 4 stylized cards. Included mutation logic to create empty resumes and navigate.
+- Executed Task T-20: Created `/cv-builder/[id]` displaying a robust split-screen CV Editor layout. Includes mobile toggling with floating CTA button, query fetching from Convex, and Shadcn/UI integration.

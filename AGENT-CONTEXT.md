@@ -24,14 +24,15 @@
 - [x] T-18: Create Convex Resume Mutations (createResume, updateResume, getUserResumes, getResume, deleteResume)
 - [x] T-19: Build CV Template Selection Page
 - [x] T-20: Build CV Editor Split-Screen Layout
+- [x] T-21: Build All CV Form Tabs with Auto-Save
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
 | Authentication | Clerk  | Keyless Mode, App Router |
 
 ## Current Status
-✅ T-20: Build CV Editor Split-Screen Layout [COMPLETED]
-Next: Build Individual Form Tab Components & PDF Preview Implementation.
+✅ T-21: Build All CV Form Tabs with Auto-Save [COMPLETED]
+Next: Build PDF Preview rendering with @react-pdf/renderer.
 
 ## Session Notes
 - Session 1 started.
@@ -54,3 +55,4 @@ Next: Build Individual Form Tab Components & PDF Preview Implementation.
 - Phase 4 started. Executed Task T-18: Implemented Convex resume mutations (`createResume`, `updateResume`, `getUserResumes`, `getResume`, `deleteResume`). Refactored dashboard to use `getUserResumes`.
 - Executed Task T-19: Built the CV Builder template selection page at `/cv-builder` with 4 stylized cards. Included mutation logic to create empty resumes and navigate.
 - Executed Task T-20: Created `/cv-builder/[id]` displaying a robust split-screen CV Editor layout. Includes mobile toggling with floating CTA button, query fetching from Convex, and Shadcn/UI integration.
+- Executed Task T-21: Built all 6 form tab components (PersonalInfo, WorkExperience, Education, Skills, Certifications, Summary) with 1.5s debounced auto-save via useAutoSave hook. Created shared types in src/types/resume.ts. Added inline title editing and save status indicator.

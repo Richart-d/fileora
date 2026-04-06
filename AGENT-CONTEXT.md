@@ -27,13 +27,14 @@
 - [x] T-21: Build All CV Form Tabs with Auto-Save
 - [x] T-22: Build CV PDF Templates (ats-classic, modern-pro)
 - [x] T-23: Wire PDF Preview and Download
+- [x] T-24: Add AI Assist Button
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
 | Authentication | Clerk  | Keyless Mode, App Router |
 
 ## Current Status
-✅ T-23: Wire PDF Preview and Download [COMPLETED]
+✅ T-24: Add AI Assist Button [COMPLETED]
 Next: Add the remaining templates or start final review.
 
 ## Session Notes
@@ -60,3 +61,4 @@ Next: Add the remaining templates or start final review.
 - Executed Task T-21: Built all 6 form tab components (PersonalInfo, WorkExperience, Education, Skills, Certifications, Summary) with 1.5s debounced auto-save via useAutoSave hook. Created shared types in src/types/resume.ts. Added inline title editing and save status indicator.
 - Executed Task T-22: Created two @react-pdf/renderer templates in src/lib/cv-templates/. ATS Classic (single-column, B&W, Helvetica) and Modern Professional (navy header band, teal accents, two-column header). Both accept full ResumeData as props.
 - Executed Task T-23: Wired the PDF Preview into `/cv-builder/[id]` right panel using dynamic import, `@react-pdf/renderer` PDFViewer, and configured PDFDownloadLink with customized filename.
+- Executed Task T-24: Added an [AI Assist ✨] button to `WorkExperienceTab.tsx` bullet points. Created API route `/api/ai/improve-bullets` using `openai` and `gpt-4o-mini` to intelligently rewrite and quantify bullets. Installed `openai` dependency.

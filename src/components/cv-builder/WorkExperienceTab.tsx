@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { WorkExperience } from "@/types/resume";
-import { Plus, Trash2, GripVertical } from "lucide-react";
+import { Plus, Trash2, GripVertical, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 interface Props {
   data: WorkExperience[];
@@ -20,6 +22,8 @@ const emptyPosition: WorkExperience = {
 };
 
 export function WorkExperienceTab({ data, onChange }: Props) {
+  const [improving, setImproving] = useState<string | null>(null);
+
   const updateEntry = (index: number, field: keyof WorkExperience, value: unknown) => {
     const updated = [...data];
     updated[index] = { ...updated[index], [field]: value };
@@ -60,6 +64,30 @@ export function WorkExperienceTab({ data, onChange }: Props) {
     const bullets = updated[posIndex].bullets.filter((_, i) => i !== bulletIndex);
     updated[posIndex] = { ...updated[posIndex], bullets: bullets.length ? bullets : [""] };
     onChange(updated);
+  };
+
+  const improveBullet = async (posIndex: number, bulletIndex: number, text: string) => {
+    if (!text.trim()) return;
+    try {
+      setImproving(`${posIndex}-${bulletIndex}`);
+      const res = await fetch("/api/ai/improve-bullets", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text }),
+      });
+      const data = await res.json();
+      if (res.ok && data.improvedText) {
+        updateBullet(posIndex, bulletIndex, data.improvedText);
+        toast.success("Bullet point improved!");
+      } else {
+        toast.error(data.error || "Failed to improve bullet point");
+      }
+    } catch (err) {
+      toast.error("Failed to connect to AI service.");
+      console.error(err);
+    } finally {
+      setImproving(null);
+    }
   };
 
   return (
@@ -149,12 +177,24 @@ export function WorkExperienceTab({ data, onChange }: Props) {
             {entry.bullets.map((bullet, bIdx) => (
               <div key={bIdx} className="flex items-center gap-2">
                 <span className="text-text-muted text-xs w-4 shrink-0">&bull;</span>
-                <Input
-                  placeholder="Describe what you achieved..."
-                  value={bullet}
-                  onChange={(e) => updateBullet(index, bIdx, e.target.value)}
-                  className="flex-1"
-                />
+                <div className="flex-1 relative flex items-center">
+                  <Input
+                    placeholder="Describe what you achieved..."
+                    value={bullet}
+                    onChange={(e) => updateBullet(index, bIdx, e.target.value)}
+                    className="flex-1 pr-24"
+                  />
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    className="absolute right-1 text-xs h-7 px-2 text-accent hover:bg-accent/10 hover:text-accent gap-1"
+                    onClick={() => improveBullet(index, bIdx, bullet)}
+                    disabled={improving === `${index}-${bIdx}` || !bullet.trim()}
+                  >
+                    {improving === `${index}-${bIdx}` ? <Loader2 className="w-3 h-3 animate-spin" /> : "AI Assist ✨"}
+                  </Button>
+                </div>
                 <Button
                   type="button"
                   variant="ghost"

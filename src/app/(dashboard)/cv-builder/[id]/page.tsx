@@ -7,7 +7,7 @@ import { api } from "../../../../../convex/_generated/api";
 import { Id } from "../../../../../convex/_generated/dataModel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { Loader2, Eye, Edit3, ArrowLeft, FileText, Save, Check } from "lucide-react";
+import { Loader2, Eye, Edit3, ArrowLeft, Save, Check } from "lucide-react";
 import Link from "next/link";
 import { useAutoSave } from "@/hooks/useAutoSave";
 import { PersonalInfoTab } from "@/components/cv-builder/PersonalInfoTab";

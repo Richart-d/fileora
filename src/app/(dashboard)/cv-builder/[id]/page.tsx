@@ -16,7 +16,18 @@ import { EducationTab } from "@/components/cv-builder/EducationTab";
 import { SkillsTab } from "@/components/cv-builder/SkillsTab";
 import { CertificationsTab } from "@/components/cv-builder/CertificationsTab";
 import { SummaryTab } from "@/components/cv-builder/SummaryTab";
-import type { PersonalInfo, WorkExperience, Education, Certification } from "@/types/resume";
+import type { PersonalInfo, WorkExperience, Education, Certification, ResumeData } from "@/types/resume";
+import dynamic from "next/dynamic";
+
+const CVPreviewDynamic = dynamic(() => import("@/components/cv-builder/CVPreview"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full flex-1 min-h-[60vh] max-w-3xl mx-auto bg-white shadow-lg border border-gray-200 rounded-sm flex flex-col items-center justify-center">
+      <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      <span className="mt-4 text-text-muted font-medium">Loading PDF viewer...</span>
+    </div>
+  ),
+});
 
 export default function CVEditorPage() {
   const params = useParams();
@@ -58,6 +69,7 @@ export default function CVEditorPage() {
   // Build the data object for auto-save
   const formData = {
     title,
+    templateId: resume?.templateId || "ats-classic",
     personalInfo,
     workExperience,
     education,
@@ -177,11 +189,7 @@ export default function CVEditorPage() {
 
       {/* RIGHT PANEL - Preview (60%) */}
       <div className={`w-full lg:w-[60%] xl:w-[65%] bg-slate-100 flex-col p-4 lg:p-8 overflow-y-auto h-full ${!showPreview ? "hidden lg:flex" : "flex"}`}>
-        <div className="w-full flex-1 min-h-[60vh] max-w-3xl mx-auto bg-white shadow-lg border border-gray-200 rounded-sm flex flex-col items-center justify-center aspect-[1/1.414]">
-          <FileText className="w-16 h-16 text-slate-300 mb-4" />
-          <p className="text-slate-500 font-medium">PDF Preview Area</p>
-          <p className="text-xs text-slate-400 mt-2">Template: {resume.templateId}</p>
-        </div>
+        <CVPreviewDynamic data={formData as ResumeData} />
       </div>
 
       {/* MOBILE FLOATING BUTTON */}

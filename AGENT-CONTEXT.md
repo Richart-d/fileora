@@ -25,14 +25,15 @@
 - [x] T-19: Build CV Template Selection Page
 - [x] T-20: Build CV Editor Split-Screen Layout
 - [x] T-21: Build All CV Form Tabs with Auto-Save
+- [x] T-22: Build CV PDF Templates (ats-classic, modern-pro)
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
 | Authentication | Clerk  | Keyless Mode, App Router |
 
 ## Current Status
-✅ T-21: Build All CV Form Tabs with Auto-Save [COMPLETED]
-Next: Build PDF Preview rendering with @react-pdf/renderer.
+✅ T-22: Build CV PDF Templates [COMPLETED]
+Next: Wire PDF preview into CV editor & add remaining templates.
 
 ## Session Notes
 - Session 1 started.
@@ -56,3 +57,4 @@ Next: Build PDF Preview rendering with @react-pdf/renderer.
 - Executed Task T-19: Built the CV Builder template selection page at `/cv-builder` with 4 stylized cards. Included mutation logic to create empty resumes and navigate.
 - Executed Task T-20: Created `/cv-builder/[id]` displaying a robust split-screen CV Editor layout. Includes mobile toggling with floating CTA button, query fetching from Convex, and Shadcn/UI integration.
 - Executed Task T-21: Built all 6 form tab components (PersonalInfo, WorkExperience, Education, Skills, Certifications, Summary) with 1.5s debounced auto-save via useAutoSave hook. Created shared types in src/types/resume.ts. Added inline title editing and save status indicator.
+- Executed Task T-22: Created two @react-pdf/renderer templates in src/lib/cv-templates/. ATS Classic (single-column, B&W, Helvetica) and Modern Professional (navy header band, teal accents, two-column header). Both accept full ResumeData as props.

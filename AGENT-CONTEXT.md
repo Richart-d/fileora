@@ -29,6 +29,7 @@
 - [x] T-23: Wire PDF Preview and Download
 - [x] T-24: Add AI Assist Button
 - [x] T-25: Add Nigerian Pro and Creative Minimal CV Templates
+- [x] T-26: Build Reusable File Upload Component
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
@@ -36,8 +37,10 @@
 
 ## Current Status
 ✅ T-24: Add AI Assist Button [COMPLETED]
+✅ T-24: Add AI Assist Button [COMPLETED]
 ✅ T-25: Add Remaining CV Templates (Nigerian Pro, Creative Minimal) [COMPLETED]
-Next: Proceed to Phase 5 (PDF Toolkit and Converter)
+✅ T-26: Build Reusable File Upload Component [COMPLETED]
+Next: Build PDF Converter Page
 
 ## Session Notes
 - Session 1 started.
@@ -65,3 +68,4 @@ Next: Proceed to Phase 5 (PDF Toolkit and Converter)
 - Executed Task T-23: Wired the PDF Preview into `/cv-builder/[id]` right panel using dynamic import, `@react-pdf/renderer` PDFViewer, and configured PDFDownloadLink with customized filename.
 - Executed Task T-24: Added an [AI Assist ✨] button to `WorkExperienceTab.tsx` bullet points. Created API route `/api/ai/improve-bullets` using `openai` and `gpt-4o-mini` to intelligently rewrite and quantify bullets. Installed `openai` dependency.
 - Executed Task T-25: Created `nigerian-pro.tsx` and `creative-minimal.tsx` templates in `src/lib/cv-templates`. Integrated both new templates in `CVPreview.tsx` ensuring their compatibility with `ResumeData`. Validated correct styling per brand guidelines.
+- Executed Task T-26 (Phase 5): Created `FileUploadZone.tsx` in `src/components/pdf/`. Features native drag-and-drop file upload, file format and size validation based on dynamic props, and a UI matching the specified Teal/Navy styling with Lucide icons.

@@ -31,6 +31,7 @@
 - [x] T-25: Add Nigerian Pro and Creative Minimal CV Templates
 - [x] T-26: Build Reusable File Upload Component
 - [x] T-27: PDF Converter — Convert TO PDF
+- [x] T-28: PDF Converter — Convert FROM PDF
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
@@ -41,7 +42,8 @@
 ✅ T-25: Add Remaining CV Templates (Nigerian Pro, Creative Minimal) [COMPLETED]
 ✅ T-26: Build Reusable File Upload Component [COMPLETED]
 ✅ T-27: PDF Converter — Convert TO PDF [COMPLETED]
-Next: Build PDF Converter — Convert FROM PDF
+✅ T-28: PDF Converter — Convert FROM PDF [COMPLETED]
+Next: Build PDF Editor Toolkit (Merge, Split, Compress, Remove Pages)
 
 ## Session Notes
 - Session 1 started.
@@ -71,3 +73,4 @@ Next: Build PDF Converter — Convert FROM PDF
 - Executed Task T-25: Created `nigerian-pro.tsx` and `creative-minimal.tsx` templates in `src/lib/cv-templates`. Integrated both new templates in `CVPreview.tsx` ensuring their compatibility with `ResumeData`. Validated correct styling per brand guidelines.
 - Executed Task T-26 (Phase 5): Created `FileUploadZone.tsx` in `src/components/pdf/`. Features native drag-and-drop file upload, file format and size validation based on dynamic props, and a UI matching the specified Teal/Navy styling with Lucide icons.
 - Executed Task T-27: Created `/api/pdf/convert-to` API route using mammoth (DOCX), SheetJS (XLSX), and pdf-lib (images, text rendering). Built `/pdf/convert` page with Convert TO PDF tab, FileUploadZone integration, progress bar, and download flow. Convert FROM PDF tab stubbed as disabled.
+- Executed Task T-28: Created `/api/pdf/convert-from` API route using pdf-parse (text extraction) and docx package (Word generation). Supports PDF→HTML, PDF→DOCX, and PDF→JPG/PNG (client-side canvas rendering). Installed `docx` package. Enabled the FROM PDF tab with output format selector and formatting-not-preserved warning.

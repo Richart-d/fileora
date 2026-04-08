@@ -3,6 +3,8 @@
 import { PDFViewer, PDFDownloadLink } from "@react-pdf/renderer";
 import { ATSClassicTemplate } from "@/lib/cv-templates/ats-classic";
 import { ModernProTemplate } from "@/lib/cv-templates/modern-pro";
+import { NigerianProTemplate } from "@/lib/cv-templates/nigerian-pro";
+import { CreativeMinimalTemplate } from "@/lib/cv-templates/creative-minimal";
 import type { ResumeData } from "@/types/resume";
 import { Button } from "@/components/ui/button";
 import { Download, Loader2 } from "lucide-react";
@@ -13,7 +15,10 @@ interface Props {
 
 export default function CVPreview({ data }: Props) {
   // Select the active template
-  const TemplateComponent = data.templateId === "modern-pro" ? ModernProTemplate : ATSClassicTemplate;
+  let TemplateComponent: React.ComponentType<{data: ResumeData}> = ATSClassicTemplate;
+  if (data.templateId === "modern-pro") TemplateComponent = ModernProTemplate;
+  else if (data.templateId === "nigerian-pro") TemplateComponent = NigerianProTemplate;
+  else if (data.templateId === "creative") TemplateComponent = CreativeMinimalTemplate;
   const PdfDocument = <TemplateComponent data={data} />;
 
   const fileName = `${data.personalInfo.name ? data.personalInfo.name.replace(/\s+/g, '-') : "Untitled"}-CV-${new Date().toISOString().split("T")[0]}.pdf`;

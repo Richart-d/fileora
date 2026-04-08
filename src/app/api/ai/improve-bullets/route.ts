@@ -14,6 +14,14 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    if (!process.env.OPENAI_API_KEY) {
+      console.error("Missing OPENAI_API_KEY environment variable");
+      return NextResponse.json(
+        { error: "Server configuration error: Missing OpenAI API key. Check your environment variables." },
+        { status: 500 }
+      );
+    }
+
     const { text } = await req.json();
 
     if (!text || typeof text !== "string") {
@@ -44,9 +52,11 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ improvedText });
   } catch (error: unknown) {
-    console.error("Error in AI improve-bullets API:", error);
+    const errMessage = error instanceof Error ? error.message : "An unknown error occurred";
+    console.error("Error in AI improve-bullets API:", errMessage);
+    
     return NextResponse.json(
-      { error: "Failed to improve text." },
+      { error: `AI Assist Failed: ${errMessage}` },
       { status: 500 }
     );
   }

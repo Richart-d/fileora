@@ -51,6 +51,7 @@ export default function CVEditorPage() {
   const [skills, setSkills] = useState<string[]>([]);
   const [certifications, setCertifications] = useState<Certification[]>([]);
   const [summary, setSummary] = useState("");
+  const [nyscStatus, setNyscStatus] = useState("");
 
   // Hydrate local state from Convex data (once)
   useEffect(() => {
@@ -62,6 +63,7 @@ export default function CVEditorPage() {
       setSkills(resume.skills);
       setCertifications(resume.certifications);
       setSummary(resume.summary);
+      setNyscStatus(resume.nyscStatus || "");
       setHasInitialized(true);
     }
   }, [resume, hasInitialized]);
@@ -76,6 +78,7 @@ export default function CVEditorPage() {
     skills,
     certifications,
     summary,
+    nyscStatus,
   };
 
   // Auto-save callback
@@ -92,6 +95,7 @@ export default function CVEditorPage() {
         skills,
         certifications,
         summary,
+        nyscStatus,
       });
       setSaveStatus("saved");
       setTimeout(() => setSaveStatus("idle"), 2000);
@@ -100,7 +104,7 @@ export default function CVEditorPage() {
       setSaveStatus("idle");
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, title, personalInfo, workExperience, education, skills, certifications, summary, updateResume]);
+  }, [id, title, personalInfo, workExperience, education, skills, certifications, summary, nyscStatus, updateResume]);
 
   // Wire up the 1.5s debounced auto-save
   useAutoSave(formData, handleSave, 1500);
@@ -167,7 +171,12 @@ export default function CVEditorPage() {
           </TabsList>
 
           <TabsContent value="personal">
-            <PersonalInfoTab data={personalInfo} onChange={setPersonalInfo} />
+            <PersonalInfoTab 
+              data={personalInfo} 
+              onChange={setPersonalInfo} 
+              nyscStatus={nyscStatus}
+              onNyscChange={setNyscStatus}
+            />
           </TabsContent>
           <TabsContent value="experience">
             <WorkExperienceTab data={workExperience} onChange={setWorkExperience} />

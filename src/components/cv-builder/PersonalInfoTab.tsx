@@ -2,14 +2,16 @@
 
 import { Input } from "@/components/ui/input";
 import { PersonalInfo } from "@/types/resume";
-import { User, Mail, Phone, MapPin, Linkedin, Globe } from "lucide-react";
+import { User, Mail, Phone, MapPin, Linkedin, Globe, BadgeCheck } from "lucide-react";
 
 interface Props {
   data: PersonalInfo;
   onChange: (data: PersonalInfo) => void;
+  nyscStatus?: string;
+  onNyscChange?: (status: string) => void;
 }
 
-export function PersonalInfoTab({ data, onChange }: Props) {
+export function PersonalInfoTab({ data, onChange, nyscStatus, onNyscChange }: Props) {
   const update = (field: keyof PersonalInfo, value: string) => {
     onChange({ ...data, [field]: value });
   };
@@ -95,6 +97,21 @@ export function PersonalInfoTab({ data, onChange }: Props) {
           onChange={(e) => update("website", e.target.value)}
         />
       </div>
+
+      {onNyscChange !== undefined && (
+        <div className="space-y-1.5 pt-4 border-t border-border mt-4">
+          <label className="text-sm font-medium text-primary flex items-center gap-2">
+            <BadgeCheck className="w-4 h-4 text-accent" />
+            NYSC Status <span className="text-text-muted text-xs">(Nigerian format, optional)</span>
+          </label>
+          <Input
+            placeholder="e.g. Completed (2020), In Progress, Exempted"
+            value={nyscStatus || ""}
+            onChange={(e) => onNyscChange(e.target.value)}
+            className="border-accent/30 focus-visible:ring-accent"
+          />
+        </div>
+      )}
     </div>
   );
 }

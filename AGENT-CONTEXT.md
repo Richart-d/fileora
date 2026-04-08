@@ -30,6 +30,7 @@
 - [x] T-24: Add AI Assist Button
 - [x] T-25: Add Nigerian Pro and Creative Minimal CV Templates
 - [x] T-26: Build Reusable File Upload Component
+- [x] T-27: PDF Converter — Convert TO PDF
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
@@ -37,10 +38,10 @@
 
 ## Current Status
 ✅ T-24: Add AI Assist Button [COMPLETED]
-✅ T-24: Add AI Assist Button [COMPLETED]
 ✅ T-25: Add Remaining CV Templates (Nigerian Pro, Creative Minimal) [COMPLETED]
 ✅ T-26: Build Reusable File Upload Component [COMPLETED]
-Next: Build PDF Converter Page
+✅ T-27: PDF Converter — Convert TO PDF [COMPLETED]
+Next: Build PDF Converter — Convert FROM PDF
 
 ## Session Notes
 - Session 1 started.
@@ -69,3 +70,4 @@ Next: Build PDF Converter Page
 - Executed Task T-24: Added an [AI Assist ✨] button to `WorkExperienceTab.tsx` bullet points. Created API route `/api/ai/improve-bullets` using `openai` and `gpt-4o-mini` to intelligently rewrite and quantify bullets. Installed `openai` dependency.
 - Executed Task T-25: Created `nigerian-pro.tsx` and `creative-minimal.tsx` templates in `src/lib/cv-templates`. Integrated both new templates in `CVPreview.tsx` ensuring their compatibility with `ResumeData`. Validated correct styling per brand guidelines.
 - Executed Task T-26 (Phase 5): Created `FileUploadZone.tsx` in `src/components/pdf/`. Features native drag-and-drop file upload, file format and size validation based on dynamic props, and a UI matching the specified Teal/Navy styling with Lucide icons.
+- Executed Task T-27: Created `/api/pdf/convert-to` API route using mammoth (DOCX), SheetJS (XLSX), and pdf-lib (images, text rendering). Built `/pdf/convert` page with Convert TO PDF tab, FileUploadZone integration, progress bar, and download flow. Convert FROM PDF tab stubbed as disabled.

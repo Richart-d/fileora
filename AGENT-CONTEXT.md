@@ -35,6 +35,7 @@
 - [x] T-29: PDF Merge Tool
 - [x] T-30: PDF Split Tool
 - [x] T-31: PDF Compress Tool
+- [x] T-32: PDF Remove Pages Tool
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
@@ -49,7 +50,8 @@
 ✅ T-29: PDF Merge Tool [COMPLETED]
 ✅ T-30: PDF Split Tool [COMPLETED]
 ✅ T-31: PDF Compress Tool [COMPLETED]
-Next: Build PDF Editor Toolkit (Remove Pages)
+✅ T-32: PDF Remove Pages Tool [COMPLETED]
+Phase 5 is complete. Proceed to Phase 6 or next steps.
 
 ## Session Notes
 - Session 1 started.
@@ -83,3 +85,4 @@ Next: Build PDF Editor Toolkit (Remove Pages)
 - Executed Task T-29: Built the PDF Merge tool (/api/pdf/merge and /pdf/merge). Implemented native HTML5 drag-and-drop array reordering for optimal UI list sortability without extra dependencies. Used pdf-lib `copyPages` for robust merging up to 10 files. Modified FileUploadZone to support list hiding logic (`hideFileList` prop).
 - Executed Task T-30: Built PDF Split Tool (`/api/pdf/split` and `/pdf/split`). API parses string input (e.g. '1-3,5,7-9'), validates 0-indexed bounds using pdf-lib, and creates a clean sub-document containing only matching pages. UI provides a visual guide for the page format and extracts to a unified download blob.
 - Executed Task T-31 (Compress Tool): Built PDF Compress Tool (`/api/pdf/compress` and `/pdf/compress`). API uses `pdf-lib` configuration optimizations across three tiers (Standard, Recommended, Maximum Check). Clears unused metadata, flattens form streams, handles object streams dynamically, and purges orphaned objects by rewriting document trees securely. UI provides comparative UI (Original Bytes vs Compiled Bytes) to visualize direct optimization savings properly.
+- Executed Task T-32 (Remove Pages Tool): Built `/api/pdf/remove-pages` receiving array mapping to wipe specified components. Created visual interface bounding `react-pdf` with intuitive interactive page grids. Allowed individual selection states with Select-All handling, preventing complete destruction (removing 100% of pages), rendering PDF securely before committing to modification.

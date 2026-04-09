@@ -8,6 +8,7 @@ interface FileUploadZoneProps {
   acceptedFormats?: string[];
   maxFiles?: number;
   maxSizeMB?: number;
+  hideFileList?: boolean;
   onFilesSelected: (files: File[]) => void;
 }
 
@@ -15,6 +16,7 @@ export function FileUploadZone({
   acceptedFormats = [],
   maxFiles = 1,
   maxSizeMB = 10,
+  hideFileList = false,
   onFilesSelected,
 }: FileUploadZoneProps) {
   const [isDragging, setIsDragging] = useState(false);
@@ -166,7 +168,7 @@ export function FileUploadZone({
         </div>
       )}
 
-      {selectedFiles.length > 0 && (
+      {!hideFileList && selectedFiles.length > 0 && (
         <div className="mt-4 space-y-2">
           {selectedFiles.map((file, i) => (
             <div

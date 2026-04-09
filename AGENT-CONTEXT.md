@@ -34,6 +34,7 @@
 - [x] T-28: PDF Converter — Convert FROM PDF
 - [x] T-29: PDF Merge Tool
 - [x] T-30: PDF Split Tool
+- [x] T-31: PDF Compress Tool
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
@@ -47,7 +48,8 @@
 ✅ T-28: PDF Converter — Convert FROM PDF [COMPLETED]
 ✅ T-29: PDF Merge Tool [COMPLETED]
 ✅ T-30: PDF Split Tool [COMPLETED]
-Next: Build PDF Editor Toolkit (Compress, Remove Pages)
+✅ T-31: PDF Compress Tool [COMPLETED]
+Next: Build PDF Editor Toolkit (Remove Pages)
 
 ## Session Notes
 - Session 1 started.
@@ -80,3 +82,4 @@ Next: Build PDF Editor Toolkit (Compress, Remove Pages)
 - Executed Task T-28: Created `/api/pdf/convert-from` API route using pdf-parse (text extraction) and docx package (Word generation). Supports PDF→HTML, PDF→DOCX, and PDF→JPG/PNG (client-side canvas rendering). Installed `docx` package. Enabled the FROM PDF tab with output format selector and formatting-not-preserved warning.
 - Executed Task T-29: Built the PDF Merge tool (/api/pdf/merge and /pdf/merge). Implemented native HTML5 drag-and-drop array reordering for optimal UI list sortability without extra dependencies. Used pdf-lib `copyPages` for robust merging up to 10 files. Modified FileUploadZone to support list hiding logic (`hideFileList` prop).
 - Executed Task T-30: Built PDF Split Tool (`/api/pdf/split` and `/pdf/split`). API parses string input (e.g. '1-3,5,7-9'), validates 0-indexed bounds using pdf-lib, and creates a clean sub-document containing only matching pages. UI provides a visual guide for the page format and extracts to a unified download blob.
+- Executed Task T-31 (Compress Tool): Built PDF Compress Tool (`/api/pdf/compress` and `/pdf/compress`). API uses `pdf-lib` configuration optimizations across three tiers (Standard, Recommended, Maximum Check). Clears unused metadata, flattens form streams, handles object streams dynamically, and purges orphaned objects by rewriting document trees securely. UI provides comparative UI (Original Bytes vs Compiled Bytes) to visualize direct optimization savings properly.

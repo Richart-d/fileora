@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import { PDFDocument } from "pdf-lib";
+import { logPdfActivity } from "@/lib/pdfLogger";
 
 export async function POST(request: NextRequest) {
   try {
@@ -95,6 +96,13 @@ export async function POST(request: NextRequest) {
 
     const pdfBytes = await newPdf.save();
     const baseName = file.name.replace(/\.pdf$/i, "");
+
+    await logPdfActivity(
+      "Remove Pages",
+      [file.name],
+      `${baseName}-edited.pdf`,
+      "success"
+    );
 
     return new Response(new Uint8Array(pdfBytes), {
       status: 200,

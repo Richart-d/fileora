@@ -37,6 +37,7 @@
 - [x] T-31: PDF Compress Tool
 - [x] T-32: PDF Remove Pages Tool
 - [x] T-33: PDF Tools Hub Page
+- [x] T-34: PDF Operation Logging (Convex)
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
@@ -53,6 +54,7 @@
 ✅ T-31: PDF Compress Tool [COMPLETED]
 ✅ T-32: PDF Remove Pages Tool [COMPLETED]
 ✅ T-33: PDF Tools Hub Page [COMPLETED]
+✅ T-34: PDF Operation Logging [COMPLETED]
 Phase 5 is fully complete. Proceed to Phase 6 or next steps.
 
 ## Session Notes
@@ -89,3 +91,4 @@ Phase 5 is fully complete. Proceed to Phase 6 or next steps.
 - Executed Task T-31 (Compress Tool): Built PDF Compress Tool (`/api/pdf/compress` and `/pdf/compress`). API uses `pdf-lib` configuration optimizations across three tiers (Standard, Recommended, Maximum Check). Clears unused metadata, flattens form streams, handles object streams dynamically, and purges orphaned objects by rewriting document trees securely. UI provides comparative UI (Original Bytes vs Compiled Bytes) to visualize direct optimization savings properly.
 - Executed Task T-32 (Remove Pages Tool): Built `/api/pdf/remove-pages` receiving array mapping to wipe specified components. Created visual interface bounding `react-pdf` with intuitive interactive page grids. Allowed individual selection states with Select-All handling, preventing complete destruction (removing 100% of pages), rendering PDF securely before committing to modification.
 - Executed Task T-33 (Tools Hub Page): Created `/pdf/edit` routing grid to display entry points for all built PDF capabilities visually grouping Phase 5 features properly into a unified dashboard.
+- Executed Task T-34 (PDF Logging): Implemented `convex/pdfOperations.ts` to log file formatting tasks directly into the backend using `ConvexHttpClient`. Connected all 6 PDF processing API routes securely via Next.js Auth contexts. Mapped the Dashboard React component to hydrate the "Recent Activity" pane from live queries directly.

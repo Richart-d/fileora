@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import mammoth from "mammoth";
+import { logPdfActivity } from "@/lib/pdfLogger";
 import * as XLSX from "xlsx";
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 
@@ -306,6 +307,13 @@ export async function POST(request: NextRequest) {
     }
 
     const outputName = file.name.replace(/\.[^/.]+$/, "") + ".pdf";
+
+    await logPdfActivity(
+      "Convert to PDF",
+      [file.name],
+      outputName,
+      "success"
+    );
 
     return new Response(new Uint8Array(pdfBuffer), {
       status: 200,

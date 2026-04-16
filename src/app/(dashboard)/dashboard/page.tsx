@@ -10,6 +10,7 @@ import { FileText, FileDown, Edit3, Plus, File, Clock } from "lucide-react";
 export default function DashboardPage() {
   const { user } = useUser();
   const resumes = useQuery(api.resumes.getUserResumes);
+  const recentActivity = useQuery(api.pdfOperations.getRecentOperations);
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
@@ -133,14 +134,44 @@ export default function DashboardPage() {
 
         <div>
           <h2 className="text-xl font-sora font-semibold text-primary mb-6">Recent Activity</h2>
-          <Card className="border-border">
-            <CardContent className="p-8 flex flex-col items-center justify-center text-center min-h-[300px]">
-              <Clock className="w-12 h-12 text-text-muted/50 mb-4" />
-              <h3 className="text-base font-sora font-medium text-primary mb-1">No recent activity</h3>
-              <p className="text-text-muted text-sm">
-                Your recent PDF conversions and edits will appear here.
-              </p>
-            </CardContent>
+          <Card className="border-border overflow-hidden">
+            {recentActivity === undefined ? (
+              <CardContent className="p-8 flex flex-col items-center justify-center text-center min-h-[300px]">
+                <Clock className="w-8 h-8 text-accent/50 mb-4 animate-spin" />
+                <p className="text-text-muted text-sm">Loading activity...</p>
+              </CardContent>
+            ) : recentActivity.length === 0 ? (
+              <CardContent className="p-8 flex flex-col items-center justify-center text-center min-h-[300px]">
+                <Clock className="w-12 h-12 text-text-muted/50 mb-4" />
+                <h3 className="text-base font-sora font-medium text-primary mb-1">No recent activity</h3>
+                <p className="text-text-muted text-sm">
+                  Your recent PDF conversions and edits will appear here.
+                </p>
+              </CardContent>
+            ) : (
+              <div className="flex flex-col divide-y divide-border">
+                {recentActivity.map((op) => (
+                  <div key={op._id} className="p-4 hover:bg-slate-50 transition-colors">
+                    <div className="flex items-start justify-between mb-1">
+                      <span className="font-semibold text-sm text-primary">{op.operationType}</span>
+                      <span className="text-[10px] uppercase font-bold tracking-wider text-accent bg-accent/10 px-2 py-0.5 rounded-full">
+                        {op.status}
+                      </span>
+                    </div>
+                    <p className="text-xs text-text-muted truncate mb-2">
+                      {op.inputFileNames.length === 1
+                        ? op.inputFileNames[0]
+                        : `${op.inputFileNames.length} files`}
+                      {" → "}
+                      {op.outputFileName}
+                    </p>
+                    <p className="text-[11px] text-slate-400">
+                      {new Date(op.createdAt).toLocaleString()}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
           </Card>
         </div>
       </div>

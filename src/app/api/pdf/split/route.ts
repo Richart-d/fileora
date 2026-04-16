@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import { PDFDocument } from "pdf-lib";
+import { logPdfActivity } from "@/lib/pdfLogger";
 
 /**
  * Parses a range string like "1-3,5,7-9" into an array of 0-indexed page numbers.
@@ -112,6 +113,13 @@ export async function POST(request: NextRequest) {
 
     const splitPdfBytes = await splitPdf.save();
     const baseName = file.name.replace(/\.pdf$/i, "");
+
+    await logPdfActivity(
+      "Split",
+      [file.name],
+      `${baseName}-split.pdf`,
+      "success"
+    );
 
     return new Response(new Uint8Array(splitPdfBytes), {
       status: 200,

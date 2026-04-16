@@ -7,6 +7,7 @@ import {
   HeadingLevel,
   AlignmentType,
 } from "docx";
+import { logPdfActivity } from "@/lib/pdfLogger";
 
 /* ── Text extraction helper ── */
 
@@ -201,6 +202,7 @@ export async function POST(request: NextRequest) {
     switch (outputFormat) {
       case "html": {
         const htmlBuffer = await convertPdfToHtml(buffer);
+        await logPdfActivity("Convert from PDF", [file.name], `${baseName}.html`, "success");
         return new Response(new Uint8Array(htmlBuffer), {
           status: 200,
           headers: {
@@ -213,6 +215,7 @@ export async function POST(request: NextRequest) {
 
       case "docx": {
         const docxBuffer = await convertPdfToDocx(buffer);
+        await logPdfActivity("Convert from PDF", [file.name], `${baseName}.docx`, "success");
         return new Response(new Uint8Array(docxBuffer), {
           status: 200,
           headers: {
@@ -228,6 +231,7 @@ export async function POST(request: NextRequest) {
       case "png": {
         // Return extracted text as JSON — client handles image rendering
         const { text, numPages } = await extractPdfForImage(buffer);
+        await logPdfActivity("Convert from PDF", [file.name], `${baseName}.${outputFormat}`, "success");
         return Response.json({
           text,
           numPages,

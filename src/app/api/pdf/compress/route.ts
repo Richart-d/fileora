@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import { PDFDocument } from "pdf-lib";
+import { logPdfActivity } from "@/lib/pdfLogger";
 
 export async function POST(request: NextRequest) {
   try {
@@ -83,6 +84,13 @@ export async function POST(request: NextRequest) {
     const compressedPdfBytes = await finalDoc.save({ useObjectStreams: true });
 
     const baseName = file.name.replace(/\.pdf$/i, "");
+
+    await logPdfActivity(
+      "Compress",
+      [file.name],
+      `${baseName}-compressed.pdf`,
+      "success"
+    );
 
     return new Response(new Uint8Array(compressedPdfBytes), {
       status: 200,

@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import { PDFDocument } from "pdf-lib";
+import { logPdfActivity } from "@/lib/pdfLogger";
 
 export async function POST(request: NextRequest) {
   try {
@@ -56,6 +57,14 @@ export async function POST(request: NextRequest) {
     }
 
     const pdfBytes = await mergedPdf.save();
+    
+    // Log the success before sending the response
+    await logPdfActivity(
+      "Merge",
+      files.map((f) => f.name),
+      "merged-document.pdf",
+      "success"
+    );
 
     return new Response(new Uint8Array(pdfBytes), {
       status: 200,

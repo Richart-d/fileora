@@ -1,6 +1,7 @@
 'use client'
 
 import { useAuth, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import { Settings } from "lucide-react";
 
 export function HeaderAuth() {
   const { isLoaded, isSignedIn } = useAuth();
@@ -25,7 +26,15 @@ export function HeaderAuth() {
           </SignUpButton>
         </>
       ) : (
-        <UserButton userProfileMode="navigation" userProfileUrl="/settings" />
+        <UserButton>
+          <UserButton.MenuItems>
+            <UserButton.Link
+              label="Settings"
+              href="/settings"
+              labelIcon={<Settings className="w-4 h-4" />}
+            />
+          </UserButton.MenuItems>
+        </UserButton>
       )}
     </div>
   );

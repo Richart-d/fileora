@@ -35,7 +35,7 @@ export default function SettingsPage() {
       setIsSaving(true);
       await updateName({ name });
       toast.success("Profile updated successfully");
-    } catch (error) {
+    } catch {
       toast.error("Failed to update profile");
     } finally {
       setIsSaving(false);
@@ -51,7 +51,7 @@ export default function SettingsPage() {
       await user?.delete();
       toast.success("Account deleted successfully");
       router.push("/");
-    } catch (error) {
+    } catch {
       toast.error("Failed to delete account");
       setIsDeleting(false);
     }

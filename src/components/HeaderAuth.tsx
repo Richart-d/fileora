@@ -25,7 +25,7 @@ export function HeaderAuth() {
           </SignUpButton>
         </>
       ) : (
-        <UserButton />
+        <UserButton userProfileMode="navigation" userProfileUrl="/settings" />
       )}
     </div>
   );

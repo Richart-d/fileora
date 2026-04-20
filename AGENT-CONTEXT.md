@@ -38,24 +38,15 @@
 - [x] T-32: PDF Remove Pages Tool
 - [x] T-33: PDF Tools Hub Page
 - [x] T-34: PDF Operation Logging (Convex)
+- [x] T-35: Account Settings Page (/settings)
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
 | Authentication | Clerk  | Keyless Mode, App Router |
 
 ## Current Status
-✅ T-24: Add AI Assist Button [COMPLETED]
-✅ T-25: Add Remaining CV Templates (Nigerian Pro, Creative Minimal) [COMPLETED]
-✅ T-26: Build Reusable File Upload Component [COMPLETED]
-✅ T-27: PDF Converter — Convert TO PDF [COMPLETED]
-✅ T-28: PDF Converter — Convert FROM PDF [COMPLETED]
-✅ T-29: PDF Merge Tool [COMPLETED]
-✅ T-30: PDF Split Tool [COMPLETED]
-✅ T-31: PDF Compress Tool [COMPLETED]
-✅ T-32: PDF Remove Pages Tool [COMPLETED]
-✅ T-33: PDF Tools Hub Page [COMPLETED]
-✅ T-34: PDF Operation Logging [COMPLETED]
-Phase 5 is fully complete. Proceed to Phase 6 or next steps.
+✅ T-35: Account Settings Page [COMPLETED]
+Phase 6 initiated. Settings page and related convex backend deletion logic built.
 
 ## Session Notes
 - Session 1 started.
@@ -92,3 +83,4 @@ Phase 5 is fully complete. Proceed to Phase 6 or next steps.
 - Executed Task T-32 (Remove Pages Tool): Built `/api/pdf/remove-pages` receiving array mapping to wipe specified components. Created visual interface bounding `react-pdf` with intuitive interactive page grids. Allowed individual selection states with Select-All handling, preventing complete destruction (removing 100% of pages), rendering PDF securely before committing to modification.
 - Executed Task T-33 (Tools Hub Page): Created `/pdf/edit` routing grid to display entry points for all built PDF capabilities visually grouping Phase 5 features properly into a unified dashboard.
 - Executed Task T-34 (PDF Logging): Implemented `convex/pdfOperations.ts` to log file formatting tasks directly into the backend using `ConvexHttpClient`. Connected all 6 PDF processing API routes securely via Next.js Auth contexts. Mapped the Dashboard React component to hydrate the "Recent Activity" pane from live queries directly.
+- Phase 6 Started. Executed Task T-35 (Account Settings): Created `/settings` route using `UserProfile` from Clerk to handle security settings. Built a custom danger zone with `radix-ui` `Dialog` to permanently delete the user's account from Convex and Clerk simultaneously using custom `deleteAccount` mutation.

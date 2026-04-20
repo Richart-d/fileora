@@ -104,10 +104,23 @@ export default function PDFRemovePagesPage() {
 
       setDownloadUrl(url);
       setDownloadName(`${baseName}-edited.pdf`);
-      toast.success("Pages removed successfully!");
+      toast.success("Pages removed successfully!", {
+        description: "Your edited PDF is ready for download.",
+        action: {
+          label: "Download",
+          onClick: () => {
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `${baseName}-edited.pdf`;
+            a.click();
+          }
+        }
+      });
     } catch (err) {
       console.error(err);
-      toast.error(err instanceof Error ? err.message : "Processing failed. Please try again.");
+      toast.error("Processing failed", { 
+        description: err instanceof Error ? err.message : "An unknown error occurred during processing." 
+      });
     } finally {
       setIsProcessing(false);
     }

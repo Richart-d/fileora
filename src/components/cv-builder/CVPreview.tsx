@@ -8,6 +8,7 @@ import { CreativeMinimalTemplate } from "@/lib/cv-templates/creative-minimal";
 import type { ResumeData } from "@/types/resume";
 import { Button } from "@/components/ui/button";
 import { Download, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 interface Props {
   data: ResumeData;
@@ -32,6 +33,7 @@ export default function CVPreview({ data }: Props) {
             <Button
               className="bg-accent text-white hover:bg-accent/90 flex items-center gap-2"
               disabled={loading}
+              onClick={() => toast.success("Resume downloaded successfully", { description: "Your CV PDF is ready." })}
             >
               {loading ? (
                 <>

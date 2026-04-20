@@ -112,10 +112,23 @@ export default function PDFMergePage() {
       const url = URL.createObjectURL(blob);
 
       setDownloadUrl(url);
-      toast.success("Files merged successfully!");
+      toast.success("Files merged successfully!", {
+        description: "Your combined PDF is ready for download.",
+        action: {
+          label: "Download",
+          onClick: () => {
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "merged-document.pdf";
+            a.click();
+          }
+        }
+      });
     } catch (err) {
       console.error(err);
-      toast.error(err instanceof Error ? err.message : "Merge failed. Please try again.");
+      toast.error("Merge failed", { 
+        description: err instanceof Error ? err.message : "An unknown error occurred during merge." 
+      });
     } finally {
       setIsMerging(false);
     }

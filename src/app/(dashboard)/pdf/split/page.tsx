@@ -61,10 +61,23 @@ export default function PDFSplitPage() {
 
       setDownloadUrl(url);
       setDownloadName(`${baseName}-split.pdf`);
-      toast.success("PDF split successfully!");
+      toast.success("PDF split successfully!", {
+        description: "Your extracted PDF is ready for download.",
+        action: {
+          label: "Download",
+          onClick: () => {
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `${baseName}-split.pdf`;
+            a.click();
+          }
+        }
+      });
     } catch (err) {
       console.error(err);
-      toast.error(err instanceof Error ? err.message : "Split failed. Please try again.");
+      toast.error("Split failed", { 
+        description: err instanceof Error ? err.message : "An unknown error occurred during split." 
+      });
     } finally {
       setIsSplitting(false);
     }

@@ -70,10 +70,18 @@ export default function PDFConvertPage() {
       const outputName = file.name.replace(/\.[^/.]+$/, "") + ".pdf";
       setToPdfDownloadUrl(url);
       setToPdfDownloadName(outputName);
-      toast.success("File converted successfully!");
+      toast.success("File converted successfully!", {
+        description: "Your PDF is ready for download.",
+        action: {
+          label: "Download",
+          onClick: () => triggerDownload(url, outputName)
+        }
+      });
     } catch (err) {
       console.error(err);
-      toast.error(err instanceof Error ? err.message : "Conversion failed.");
+      toast.error("Conversion failed", { 
+        description: err instanceof Error ? err.message : "An unknown error occurred during conversion." 
+      });
     } finally {
       setIsToPdfConverting(false);
     }
@@ -181,6 +189,7 @@ export default function PDFConvertPage() {
       }
 
       const baseName = file.name.replace(/\.pdf$/i, "");
+      let finalUrl = "";
 
       if (fromPdfFormat === "jpg" || fromPdfFormat === "png") {
         // Image format: server returns JSON with text, client renders to canvas
@@ -189,21 +198,29 @@ export default function PDFConvertPage() {
 
         // Convert data URL to blob URL
         const blob = await fetch(dataUrl).then((r) => r.blob());
-        const url = URL.createObjectURL(blob);
-        setFromPdfDownloadUrl(url);
+        finalUrl = URL.createObjectURL(blob);
+        setFromPdfDownloadUrl(finalUrl);
         setFromPdfDownloadName(`${baseName}.${fromPdfFormat}`);
       } else {
         // HTML / DOCX: server returns the file directly
         const blob = await response.blob();
-        const url = URL.createObjectURL(blob);
-        setFromPdfDownloadUrl(url);
+        finalUrl = URL.createObjectURL(blob);
+        setFromPdfDownloadUrl(finalUrl);
         setFromPdfDownloadName(`${baseName}.${fromPdfFormat}`);
       }
 
-      toast.success("PDF converted successfully!");
+      toast.success("PDF converted successfully!", {
+        description: `Your file has been extracted to ${fromPdfFormat.toUpperCase()}.`,
+        action: {
+          label: "Download",
+          onClick: () => triggerDownload(finalUrl, `${baseName}.${fromPdfFormat}`)
+        }
+      });
     } catch (err) {
       console.error(err);
-      toast.error(err instanceof Error ? err.message : "Conversion failed.");
+      toast.error("Conversion failed", { 
+        description: err instanceof Error ? err.message : "An unknown error occurred during conversion." 
+      });
     } finally {
       setIsFromPdfConverting(false);
     }

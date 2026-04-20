@@ -68,14 +68,38 @@ export default function PDFCompressPage() {
       
       // If the file actually grew (which can happen on already highly compressed PDFs using object streams), warn them
       if (blob.size >= file.size) {
-        toast.info("Your file is already highly optimized! We couldn't reduce the size further.");
+        toast.info("Optimization complete", {
+          description: "Your file is already highly optimized! We couldn't reduce the size further.",
+          action: {
+            label: "Download",
+            onClick: () => {
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = `${baseName}-compressed.pdf`;
+              a.click();
+            }
+          }
+        });
       } else {
-        toast.success("PDF compressed successfully!");
+        toast.success("PDF compressed successfully!", {
+          description: "Your compressed PDF is ready for download.",
+          action: {
+            label: "Download",
+            onClick: () => {
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = `${baseName}-compressed.pdf`;
+              a.click();
+            }
+          }
+        });
       }
 
     } catch (err) {
       console.error(err);
-      toast.error(err instanceof Error ? err.message : "Compression failed. Please try again.");
+      toast.error("Compression failed", { 
+        description: err instanceof Error ? err.message : "An unknown error occurred during compression." 
+      });
     } finally {
       setIsCompressing(false);
     }

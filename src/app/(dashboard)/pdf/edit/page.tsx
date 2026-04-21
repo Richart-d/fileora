@@ -64,12 +64,12 @@ const pdfTools = [
 
 export default function PDFToolsHubPage() {
   return (
-    <div className="container mx-auto px-4 py-10 max-w-6xl">
-      <div className="mb-12 text-center max-w-3xl mx-auto">
-        <h1 className="text-4xl font-sora font-extrabold text-primary mb-4 tracking-tight">
+    <div className="container mx-auto px-4 py-8 sm:py-10 max-w-6xl">
+      <div className="mb-8 sm:mb-12 text-center max-w-3xl mx-auto">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-sora font-extrabold text-primary mb-4 tracking-tight">
           PDF Tools Hub
         </h1>
-        <p className="text-lg text-text-muted leading-relaxed">
+        <p className="text-base sm:text-lg text-text-muted leading-relaxed">
           Everything you need to modify, format, compress, and organize your PDF documents—all in one secure place.
         </p>
       </div>
@@ -77,14 +77,14 @@ export default function PDFToolsHubPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {pdfTools.map((tool) => (
           <Link href={tool.href} key={tool.title} className="group outline-none">
-            <div className={`h-full bg-white rounded-2xl border-2 border-border hover:${tool.borderColor} p-6 sm:p-8 flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden relative`}>
+            <div className={`h-full bg-white rounded-2xl border-2 border-border hover:${tool.borderColor} p-5 sm:p-8 flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden relative`}>
               
               {/* Background gradient hint */}
               <div className={`absolute top-0 right-0 w-32 h-32 blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 rounded-full translate-x-10 -translate-y-10 ${tool.bgColor}`} />
               
               <div className="relative z-10">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 duration-300 ${tool.bgColor}`}>
-                  <tool.icon className={`w-7 h-7 ${tool.color}`} />
+                <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-6 transition-transform group-hover:scale-110 duration-300 ${tool.bgColor}`}>
+                  <tool.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${tool.color}`} />
                 </div>
                 
                 <h3 className="text-xl font-sora font-semibold text-primary mb-3">
@@ -97,7 +97,7 @@ export default function PDFToolsHubPage() {
               </div>
               
               <div className="mt-auto relative z-10 text-left">
-                <span className="inline-flex items-center text-sm font-semibold text-accent group-hover:text-primary transition-colors">
+                <span className="inline-flex items-center text-sm font-semibold text-accent group-hover:text-primary transition-colors min-h-[44px]">
                   Open Tool
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </span>
@@ -107,7 +107,7 @@ export default function PDFToolsHubPage() {
         ))}
 
         {/* Placeholder / Coming Soon card for grid symmetry */}
-        <div className="h-full bg-slate-50 rounded-2xl border-2 border-dashed border-border p-6 sm:p-8 flex flex-col items-center justify-center text-center opacity-70">
+        <div className="h-full bg-slate-50 rounded-2xl border-2 border-dashed border-border p-5 sm:p-8 flex flex-col items-center justify-center text-center opacity-70">
           <div className="w-14 h-14 rounded-xl bg-slate-200 flex items-center justify-center mb-6">
             <FileText className="w-7 h-7 text-slate-400" />
           </div>

@@ -68,9 +68,9 @@ export default function CVBuilderSelectionPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-10 max-w-6xl">
-      <div className="mb-10 text-center max-w-2xl mx-auto">
-        <h1 className="text-3xl font-sora font-bold text-primary mb-4">
+    <div className="container mx-auto px-4 py-8 sm:py-10 max-w-6xl">
+      <div className="mb-8 sm:mb-10 text-center max-w-2xl mx-auto">
+        <h1 className="text-2xl sm:text-3xl font-sora font-bold text-primary mb-4">
           Choose a Template
         </h1>
         <p className="text-text-muted">
@@ -78,7 +78,7 @@ export default function CVBuilderSelectionPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {templates.map((tpl) => {
           const Icon = tpl.icon;
           const isProcessing = isCreating === tpl.id;
@@ -111,7 +111,7 @@ export default function CVBuilderSelectionPage() {
                 <Button 
                   onClick={() => handleSelectTemplate(tpl.id)} 
                   disabled={isCreating !== null}
-                  className="w-full font-medium"
+                  className="w-full font-medium min-h-[44px]"
                   variant={isProcessing ? "secondary" : "default"}
                 >
                   {isProcessing ? "Creating..." : "Use This Template"}

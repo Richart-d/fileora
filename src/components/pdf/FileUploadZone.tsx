@@ -120,7 +120,7 @@ export function FileUploadZone({
     <div className="w-full">
       <div
         className={cn(
-          "w-full p-8 rounded-xl border-2 border-dashed transition-all cursor-pointer flex flex-col items-center justify-center text-center",
+          "w-full p-5 sm:p-8 rounded-xl border-2 border-dashed transition-all cursor-pointer flex flex-col items-center justify-center text-center",
           isDragging
             ? "border-accent bg-teal-50"
             : "border-border hover:border-accent hover:bg-slate-50",
@@ -192,7 +192,7 @@ export function FileUploadZone({
                   e.stopPropagation();
                   removeFile(i);
                 }}
-                className="p-1.5 text-text-muted hover:text-red-500 hover:bg-red-50 rounded-md transition-colors shrink-0"
+                className="p-2.5 text-text-muted hover:text-red-500 hover:bg-red-50 rounded-md transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 title="Remove file"
               >
                 <X className="w-4 h-4" />

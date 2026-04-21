@@ -13,15 +13,15 @@ export default function DashboardPage() {
   const recentActivity = useQuery(api.pdfOperations.getRecentOperations);
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-6xl">
-      <div className="mb-10">
-        <h1 className="text-3xl font-sora font-bold text-primary mb-2">
+    <div className="container mx-auto px-4 py-6 sm:py-8 max-w-6xl">
+      <div className="mb-8 sm:mb-10">
+        <h1 className="text-2xl sm:text-3xl font-sora font-bold text-primary mb-2">
           Welcome back{user?.firstName ? `, ${user.firstName}` : ""}!
         </h1>
         <p className="text-text-muted">Here&apos;s what&apos;s happening with your documents today.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-12">
         <Link href="/cv-builder" className="group">
           <Card className="h-full border-border hover:border-primary hover:shadow-md transition-all duration-200">
             <CardHeader className="flex flex-row items-center gap-4 pb-2">
@@ -120,8 +120,8 @@ export default function DashboardPage() {
                         Last edited: {new Date(resume.updatedAt).toLocaleDateString()}
                       </CardDescription>
                     </CardHeader>
-                    <div className="px-6 pb-6 pt-0 mt-auto flex gap-2">
-                      <Link href={`/cv-builder/${resume._id}`} className="flex-1 bg-secondary hover:bg-secondary/80 text-primary text-center py-2 rounded-md text-sm font-medium transition-colors">
+                    <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-0 mt-auto flex gap-2">
+                      <Link href={`/cv-builder/${resume._id}`} className="flex-1 bg-secondary hover:bg-secondary/80 text-primary text-center py-2.5 rounded-md text-sm font-medium transition-colors min-h-[44px] flex items-center justify-center">
                         Edit
                       </Link>
                     </div>

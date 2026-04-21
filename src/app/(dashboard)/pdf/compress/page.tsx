@@ -138,9 +138,9 @@ export default function PDFCompressPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-10 max-w-4xl">
-      <div className="mb-10 text-center max-w-2xl mx-auto">
-        <h1 className="text-3xl font-sora font-bold text-primary mb-3">
+    <div className="container mx-auto px-4 py-8 sm:py-10 max-w-4xl">
+      <div className="mb-8 sm:mb-10 text-center max-w-2xl mx-auto">
+        <h1 className="text-2xl sm:text-3xl font-sora font-bold text-primary mb-3">
           Compress PDF
         </h1>
         <p className="text-text-muted leading-relaxed">

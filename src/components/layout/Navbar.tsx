@@ -35,12 +35,13 @@ export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const NavLinks = () => (
+  const NavLinks = ({ mobile = false }: { mobile?: boolean }) => (
     <>
       <Link 
         href="/dashboard" 
         className={cn(
           "text-sm font-medium transition-colors hover:text-primary",
+          mobile && "min-h-[44px] flex items-center",
           pathname === "/dashboard" ? "text-primary" : "text-muted-foreground"
         )}
         onClick={() => setIsOpen(false)}
@@ -51,6 +52,7 @@ export function Navbar() {
         href="/cv-builder" 
         className={cn(
           "text-sm font-medium transition-colors hover:text-primary",
+          mobile && "min-h-[44px] flex items-center",
           pathname?.startsWith("/cv-builder") ? "text-primary" : "text-muted-foreground"
         )}
         onClick={() => setIsOpen(false)}
@@ -106,7 +108,7 @@ export function Navbar() {
           {isSignedIn && (
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden text-primary">
+                <Button variant="ghost" size="icon" className="md:hidden text-primary min-w-[44px] min-h-[44px]">
                   <Menu className="h-5 w-5" />
                   <span className="sr-only">Toggle navigation menu</span>
                 </Button>
@@ -115,13 +117,13 @@ export function Navbar() {
                 <SheetHeader>
                   <SheetTitle className="text-left font-sora text-primary">Menu</SheetTitle>
                 </SheetHeader>
-                <div className="flex flex-col gap-4 mt-6">
-                  <div className="flex flex-col gap-4">
-                    <NavLinks />
+                <div className="flex flex-col gap-2 mt-6">
+                  <div className="flex flex-col gap-1">
+                    <NavLinks mobile />
                   </div>
-                  <div className="flex flex-col gap-2 mt-4">
+                  <div className="flex flex-col gap-1 mt-4">
                     <h4 className="text-sm font-semibold text-primary font-sora">PDF Tools</h4>
-                    <div className="flex flex-col gap-3 pl-4 border-l-2 border-border mt-2">
+                    <div className="flex flex-col gap-1 pl-4 border-l-2 border-border mt-2">
                       {pdfTools.map((tool) => {
                         const Icon = tool.icon;
                         return (
@@ -129,7 +131,7 @@ export function Navbar() {
                             key={tool.name}
                             href={tool.href}
                             className={cn(
-                              "flex items-center gap-3 text-sm transition-colors hover:text-primary",
+                              "flex items-center gap-3 text-sm transition-colors hover:text-primary min-h-[44px]",
                                pathname === tool.href ? "text-primary font-medium" : "text-muted-foreground"
                             )}
                             onClick={() => setIsOpen(false)}
@@ -140,6 +142,18 @@ export function Navbar() {
                         );
                       })}
                     </div>
+                  </div>
+                  <div className="border-t border-border mt-4 pt-4">
+                    <Link
+                      href="/settings"
+                      className={cn(
+                        "flex items-center gap-3 text-sm transition-colors hover:text-primary min-h-[44px]",
+                        pathname === "/settings" ? "text-primary font-medium" : "text-muted-foreground"
+                      )}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Settings
+                    </Link>
                   </div>
                 </div>
               </SheetContent>

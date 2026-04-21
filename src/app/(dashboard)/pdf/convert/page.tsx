@@ -251,10 +251,10 @@ export default function PDFConvertPage() {
      ═══════════════════════════════════════════ */
 
   return (
-    <div className="container mx-auto px-4 py-10 max-w-4xl">
+    <div className="container mx-auto px-4 py-8 sm:py-10 max-w-4xl">
       {/* Page Header */}
-      <div className="mb-10 text-center max-w-2xl mx-auto">
-        <h1 className="text-3xl font-sora font-bold text-primary mb-3">
+      <div className="mb-8 sm:mb-10 text-center max-w-2xl mx-auto">
+        <h1 className="text-2xl sm:text-3xl font-sora font-bold text-primary mb-3">
           PDF Converter
         </h1>
         <p className="text-text-muted leading-relaxed">

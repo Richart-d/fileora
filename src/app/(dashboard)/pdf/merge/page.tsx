@@ -151,9 +151,9 @@ export default function PDFMergePage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-10 max-w-4xl">
-      <div className="mb-10 text-center max-w-2xl mx-auto">
-        <h1 className="text-3xl font-sora font-bold text-primary mb-3">
+    <div className="container mx-auto px-4 py-8 sm:py-10 max-w-4xl">
+      <div className="mb-8 sm:mb-10 text-center max-w-2xl mx-auto">
+        <h1 className="text-2xl sm:text-3xl font-sora font-bold text-primary mb-3">
           Merge PDFs
         </h1>
         <p className="text-text-muted leading-relaxed">
@@ -230,7 +230,7 @@ export default function PDFMergePage() {
                       <button
                         type="button"
                         onClick={() => removeFile(idx)}
-                        className="p-1.5 ml-2 text-text-muted hover:text-red-500 hover:bg-red-50 rounded-md transition-colors shrink-0"
+                        className="p-2 ml-2 text-text-muted hover:text-red-500 hover:bg-red-50 rounded-md transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
                         title="Remove file"
                       >
                         <X className="w-4 h-4" />

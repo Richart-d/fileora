@@ -131,9 +131,9 @@ export default function CVEditorPage() {
   }
 
   return (
-    <div className="relative flex flex-col lg:flex-row h-[calc(100vh-4rem)] border-t border-border -mx-8 lg:mx-0">
+    <div className="relative flex flex-col lg:flex-row h-[calc(100vh-4rem)] border-t border-border -mx-4 sm:-mx-8 lg:mx-0">
       {/* LEFT PANEL - Form (40%) */}
-      <div className={`w-full lg:w-[40%] xl:w-[35%] bg-white border-r border-border p-4 lg:p-6 overflow-y-auto h-full ${showPreview ? "hidden lg:block" : "block"}`}>
+      <div className={`w-full lg:w-[40%] xl:w-[35%] bg-white border-r border-border p-3 sm:p-4 lg:p-6 overflow-y-auto h-full ${showPreview ? "hidden lg:block" : "block"}`}>
         {/* Header with back button, title, and save status */}
         <div className="flex items-center gap-3 mb-4">
           <Link href="/dashboard" className="text-text-muted hover:text-primary transition-colors shrink-0">
@@ -162,12 +162,12 @@ export default function CVEditorPage() {
 
         <Tabs defaultValue="personal" className="w-full">
           <TabsList className="w-full flex flex-wrap h-auto mb-6 bg-surface border border-border p-1">
-            <TabsTrigger className="flex-1 min-w-[30%] text-xs py-2" value="personal">Personal Info</TabsTrigger>
-            <TabsTrigger className="flex-1 min-w-[30%] text-xs py-2" value="experience">Experience</TabsTrigger>
-            <TabsTrigger className="flex-1 min-w-[30%] text-xs py-2" value="education">Education</TabsTrigger>
-            <TabsTrigger className="flex-1 min-w-[30%] text-xs py-2" value="skills">Skills</TabsTrigger>
-            <TabsTrigger className="flex-1 min-w-[30%] text-xs py-2" value="certifications">Certifications</TabsTrigger>
-            <TabsTrigger className="flex-1 min-w-[30%] text-xs py-2" value="summary">Summary</TabsTrigger>
+            <TabsTrigger className="flex-1 min-w-[30%] text-[11px] sm:text-xs py-2.5" value="personal">Personal Info</TabsTrigger>
+            <TabsTrigger className="flex-1 min-w-[30%] text-[11px] sm:text-xs py-2.5" value="experience">Experience</TabsTrigger>
+            <TabsTrigger className="flex-1 min-w-[30%] text-[11px] sm:text-xs py-2.5" value="education">Education</TabsTrigger>
+            <TabsTrigger className="flex-1 min-w-[30%] text-[11px] sm:text-xs py-2.5" value="skills">Skills</TabsTrigger>
+            <TabsTrigger className="flex-1 min-w-[30%] text-[11px] sm:text-xs py-2.5" value="certifications">Certs</TabsTrigger>
+            <TabsTrigger className="flex-1 min-w-[30%] text-[11px] sm:text-xs py-2.5" value="summary">Summary</TabsTrigger>
           </TabsList>
 
           <TabsContent value="personal">

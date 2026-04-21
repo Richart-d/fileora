@@ -40,15 +40,15 @@
 - [x] T-34: PDF Operation Logging (Convex)
 - [x] T-35: Account Settings Page (/settings)
 - [x] T-36: Toast Notifications
+- [x] T-37: Mobile Responsiveness Audit
 
 ## Tech Stack Addendum
 | Toast Notifications | sonner | replaces shadcn/ui toast |
 | Authentication | Clerk  | Keyless Mode, App Router |
 
 ## Current Status
-✅ T-35: Account Settings Page [COMPLETED]
-✅ T-36: Toast Notifications [COMPLETED]
-Phase 6 initiated. Settings page and related convex backend deletion logic built. Toast events fully verified and expanded.
+✅ T-37: Mobile Responsiveness Audit [COMPLETED]
+Phase 6 in progress. All pages audited and fixed for 390px viewport (iPhone 14).
 
 ## Session Notes
 - Session 1 started.

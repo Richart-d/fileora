@@ -13,21 +13,21 @@ export default function LandingPage() {
     <div className="flex flex-col min-h-screen bg-background">
       {/* Header */}
       <header className="container mx-auto px-4 h-16 flex items-center justify-between border-b border-border/40">
-        <div className="text-2xl font-sora font-bold text-primary">Fileora</div>
-        <div className="flex items-center gap-4">
+        <div className="text-xl sm:text-2xl font-sora font-bold text-primary">Fileora</div>
+        <div className="flex items-center gap-2 sm:gap-4">
           {isSignedIn ? (
-            <Button asChild className="bg-primary text-white hover:bg-primary/90">
+            <Button asChild className="bg-primary text-white hover:bg-primary/90 min-h-[44px]">
               <Link href="/dashboard">Go to Dashboard</Link>
             </Button>
           ) : (
             <>
               <SignInButton mode="modal" forceRedirectUrl="/dashboard">
-                <button className="text-sm font-medium text-text-primary hover:text-primary transition-colors">
+                <button className="text-sm font-medium text-text-primary hover:text-primary transition-colors min-h-[44px] px-3">
                   Sign In
                 </button>
               </SignInButton>
               <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
-                <Button className="bg-primary text-white hover:bg-primary/90">
+                <Button className="bg-primary text-white hover:bg-primary/90 min-h-[44px]">
                   Sign Up
                 </Button>
               </SignUpButton>
@@ -38,10 +38,10 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <section className="flex-1 flex flex-col items-center justify-center text-center px-4 py-20 md:py-32">
-        <h1 className="text-4xl md:text-6xl font-sora font-bold text-primary max-w-4xl tracking-tight mb-6">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-sora font-bold text-primary max-w-4xl tracking-tight mb-6">
           Build your CV. Manage your PDFs. All in one place.
         </h1>
-        <p className="text-lg md:text-xl text-text-muted max-w-2xl mb-10">
+        <p className="text-base sm:text-lg md:text-xl text-text-muted max-w-2xl mb-10 px-2">
           The ultimate document utility platform for professionals. Create ATS-friendly resumes and handle all your PDF conversions and edits for free.
         </p>
         <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -58,7 +58,7 @@ export default function LandingPage() {
       <section id="features" className="py-20 bg-surface">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-sora font-bold text-primary mb-4">Everything you need</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-sora font-bold text-primary mb-4">Everything you need</h2>
             <p className="text-text-muted max-w-xl mx-auto">Powerful tools designed to make your professional life easier.</p>
           </div>
 

@@ -58,10 +58,10 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8 pb-12 w-full mt-4">
+    <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8 pb-12 w-full mt-4 px-4">
       <div>
-        <h1 className="text-3xl font-semibold text-[#1E3A5F]">Account Settings</h1>
-        <p className="text-muted-foreground mt-2">Manage your profile, security, and account preferences.</p>
+        <h1 className="text-2xl sm:text-3xl font-semibold text-[#1E3A5F]">Account Settings</h1>
+        <p className="text-muted-foreground mt-2 text-sm sm:text-base">Manage your profile, security, and account preferences.</p>
       </div>
 
       {/* Profile Section */}
@@ -86,7 +86,7 @@ export default function SettingsPage() {
           <Button 
             onClick={handleSaveProfile} 
             disabled={isSaving || !currentUser || name === currentUser.name}
-            className="bg-[#0D9488] hover:bg-[#0D9488]/90 text-white"
+            className="bg-[#0D9488] hover:bg-[#0D9488]/90 text-white min-h-[44px]"
           >
             {isSaving && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Save Changes
@@ -97,7 +97,7 @@ export default function SettingsPage() {
       {/* Security Section (Clerk UserProfile) */}
       <div className="w-full">
          <h2 className="text-xl font-semibold text-[#1E3A5F] mb-4">Security & Authentication</h2>
-         <div className="[&_.cl-rootBox]:w-full [&_.cl-card]:w-full [&_.cl-card]:max-w-none [&_.cl-card]:shadow-sm [&_.cl-card]:border [&_.cl-card]:border-border w-full flex">
+         <div className="[&_.cl-rootBox]:w-full [&_.cl-card]:w-full [&_.cl-card]:max-w-none [&_.cl-card]:shadow-sm [&_.cl-card]:border [&_.cl-card]:border-border [&_.cl-rootBox]:max-w-full w-full flex overflow-x-hidden">
              <UserProfile routing="hash" />
          </div>
       </div>
@@ -116,7 +116,7 @@ export default function SettingsPage() {
         <CardContent>
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="destructive" className="bg-red-500 hover:bg-red-600 flex items-center">
+              <Button variant="destructive" className="bg-red-500 hover:bg-red-600 flex items-center min-h-[44px]">
                 <Trash2 className="mr-2 h-4 w-4" />
                 Delete Account
               </Button>
